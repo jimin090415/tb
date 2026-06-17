@@ -1,115 +1,208 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마법약 상점</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마법약 상점 DX</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- 시작 화면 -->
-    <div id="startScreen" class="screen">
-        <h1>🧪 마법약 상점</h1>
-        <p>손님이 원하는 마법약을 만들어 주세요!</p>
+<!-- 시작 화면 -->
 
-        <div class="guide">
-            <p>✨ 성공 : +10점, +2초</p>
-            <p>💥 실패 : -5점, -3초</p>
-            <p>⏰ 제한 시간 : 60초</p>
-        </div>
+<div id="startScreen" class="screen">
 
-        <button id="startBtn">게임 시작</button>
-    </div>
+    <h1>🧪 마법약 상점 DX</h1>
 
-    <!-- 게임 화면 -->
-    <div id="gameScreen" class="hidden">
+    <p>
+        손님이 원하는 마법약을 만들어
+        최고의 마법사가 되어보세요!
+    </p>
 
-        <header>
+    <div class="guide">
 
-            <div class="stat">
-                💰 점수
-                <span id="score">0</span>
-            </div>
-
-            <div class="stat">
-                ⏰ 시간
-                <span id="timer">60</span>
-            </div>
-
-            <div class="stat">
-                🏆 최고점수
-                <span id="highScore">0</span>
-            </div>
-
-        </header>
-
-        <!-- 손님 -->
-        <div class="customerBox">
-
-            <div class="customer">
-                🧙‍♀️
-            </div>
-
-            <div class="speech">
-
-                <h2>주문</h2>
-
-                <p id="orderText">
-                    물약을 만들어 주세요!
-                </p>
-
-            </div>
-
-        </div>
-
-        <!-- 별점 -->
-        <div class="stars" id="stars">
-            ⭐⭐⭐
-        </div>
-
-        <!-- 재료 -->
-        <div id="ingredients" class="ingredients">
-        </div>
-
-        <!-- 선택 재료 -->
-        <div class="selectedBox">
-            선택한 재료 :
-            <span id="selectedText">
-                없음
-            </span>
-        </div>
-
-        <button id="brewBtn">
-            🧪 물약 제조
-        </button>
-
-        <div id="result" class="result"></div>
+        <p>✨ 성공 : +10점 +20골드 +2초</p>
+        <p>💥 실패 : -5점 -10골드 -3초</p>
+        <p>🔥 콤보로 추가 점수 획득</p>
+        <p>📈 점수에 따라 레벨업</p>
 
     </div>
 
-    <!-- 게임 오버 -->
-    <div id="gameOverScreen" class="screen hidden">
+    <button id="startBtn">
+        게임 시작
+    </button>
 
-        <h1>⏰ 게임 종료!</h1>
+</div>
 
-        <p>
-            최종 점수 :
-            <span id="finalScore"></span>
-        </p>
+<!-- 게임 화면 -->
 
-        <p>
-            최고 점수 :
-            <span id="bestScore"></span>
-        </p>
+<div id="gameScreen" class="hidden">
 
-        <button id="restartBtn">
-            다시하기
-        </button>
+<header>
 
-    </div>
+<div class="stat">
+💰 골드
+<span id="gold">0</span>
+</div>
 
-    <script src="script.js"></script>
+<div class="stat">
+🏆 점수
+<span id="score">0</span>
+</div>
+
+<div class="stat">
+📈 레벨
+<span id="level">1</span>
+</div>
+
+<div class="stat">
+🔥 콤보
+<span id="combo">0</span>
+</div>
+
+<div class="stat">
+⏰ 시간
+<span id="timer">60</span>
+</div>
+
+</header>
+
+<!-- 손님 -->
+
+<div class="customerBox">
+
+<div id="customerEmoji" class="customer">
+🧙‍♀️
+</div>
+
+<div class="speech">
+
+<h2 id="customerName">
+마녀
+</h2>
+
+<p id="orderText">
+물약을 만들어 주세요!
+</p>
+
+</div>
+
+</div>
+
+<!-- 별점 -->
+
+<div id="stars" class="stars">
+⭐⭐⭐
+</div>
+
+<!-- 재료 -->
+
+<div id="ingredients"
+class="ingredients">
+</div>
+
+<!-- 선택한 재료 -->
+
+<div class="selectedBox">
+
+선택한 재료 :
+
+<span id="selectedText">
+없음
+</span>
+
+</div>
+
+<button id="brewBtn">
+
+🧪 물약 제조
+
+</button>
+
+<div id="result"
+class="result">
+</div>
+
+<!-- 상점 -->
+
+<div class="shop">
+
+<h2>
+🏪 마법 상점
+</h2>
+
+<div class="shopButtons">
+
+<button id="buyTime">
+
+⏰ 시간 +10초
+(100G)
+
+</button>
+
+<button id="buyDouble">
+
+✨ 점수 2배
+(200G)
+
+</button>
+
+</div>
+
+</div>
+
+<!-- 업적 -->
+
+<div class="achievementBox">
+
+<h2>
+🏅 업적
+</h2>
+
+<ul id="achievementList">
+
+<li>
+아직 업적 없음
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- 게임 오버 -->
+
+<div id="gameOverScreen"
+class="screen hidden">
+
+<h1>
+⏰ 게임 종료
+</h1>
+
+<p>
+최종 점수 :
+<span id="finalScore">
+0
+</span>
+</p>
+
+<p>
+최고 점수 :
+<span id="bestScore">
+0
+</span>
+</p>
+
+<button id="restartBtn">
+다시하기
+</button>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

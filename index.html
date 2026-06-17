@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>마법약 상점 DX</title>
+<title>마법약 상점 DX 2.0</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- 시작 화면 -->
 
 <div id="startScreen" class="screen">
 
-    <h1>🧪 마법약 상점 DX</h1>
+    <h1>🧪 마법약 상점 DX 2.0</h1>
 
     <p class="intro">
-        손님이 원하는 물약을 기억하고
-        정확하게 만들어 주세요!
+        손님의 주문을 기억하고
+        완벽한 물약을 만들어 보세요!
     </p>
 
     <div class="guide">
 
         <h3>게임 방법</h3>
 
-        <p>① 손님의 주문서를 확인한다.</p>
-        <p>② 필요한 재료를 기억한다.</p>
-        <p>③ 가마솥에 재료를 넣는다.</p>
-        <p>④ 물약을 제조한다.</p>
+        <p>① 주문서를 확인한다.</p>
+        <p>② 재료를 순서대로 넣는다.</p>
+        <p>③ 마법봉으로 젓는다.</p>
+        <p>④ 가열 게이지를 맞춘다.</p>
+        <p>⑤ 완성된 물약을 전달한다.</p>
 
     </div>
 
@@ -42,223 +42,307 @@
 
 <div id="gameScreen" class="hidden">
 
-    <!-- 상단 정보 -->
+<header>
 
-    <header>
+<div class="stat">
+🏆 점수
+<span id="score">0</span>
+</div>
 
-        <div class="stat">
-            🏆 점수
-            <span id="score">0</span>
-        </div>
+<div class="stat">
+💰 골드
+<span id="gold">0</span>
+</div>
 
-        <div class="stat">
-            💰 골드
-            <span id="gold">0</span>
-        </div>
+<div class="stat">
+📈 레벨
+<span id="level">1</span>
+</div>
 
-        <div class="stat">
-            📈 레벨
-            <span id="level">1</span>
-        </div>
+<div class="stat">
+😊 만족도
+<span id="satisfaction">100</span>
+</div>
 
-        <div class="stat">
-            🔥 콤보
-            <span id="combo">0</span>
-        </div>
+<div class="stat">
+⏰ 시간
+<span id="timer">90</span>
+</div>
 
-        <div class="stat">
-            ⏰ 시간
-            <span id="timer">60</span>
-        </div>
+</header>
 
-    </header>
+<!-- 손님 -->
 
-    <!-- 손님 -->
+<section class="customerSection">
 
-    <section class="customerSection">
+<div id="customerEmoji"
+class="customerAvatar">
+🧙‍♀️
+</div>
 
-        <div id="customerEmoji"
-             class="customerAvatar">
-            🧙‍♀️
-        </div>
+<div class="speechBubble">
 
-        <div class="speechBubble">
+<h2 id="customerName">
+마녀
+</h2>
 
-            <h2 id="customerName">
-                마녀
-            </h2>
+<p id="customerSpeech">
+물약을 부탁해요!
+</p>
 
-            <p id="customerSpeech">
-                물약 하나 부탁해요!
-            </p>
+</div>
 
-        </div>
+</section>
 
-    </section>
+<!-- 주문서 -->
 
-    <!-- 주문서 -->
+<section id="recipeCard">
 
-    <section id="recipeCard">
+<h2>📜 주문서</h2>
 
-        <h2>
-            📜 주문서
-        </h2>
+<h3 id="potionName">
+투명화 물약
+</h3>
 
-        <h3 id="potionName">
-            투명화 물약
-        </h3>
+<ul id="recipeList">
 
-        <ul id="recipeList">
+<li>유니콘 털</li>
+<li>달빛 가루</li>
+<li>안개 버섯</li>
 
-            <li>유니콘 털</li>
-            <li>달빛 가루</li>
-            <li>안개 버섯</li>
+</ul>
 
-        </ul>
+<div id="extraRecipe">
 
-        <div id="recipeCountdown">
+🪄 젓기 : 3회<br>
+🔥 가열 : 70%
 
-            레시피가 곧 사라집니다...
+</div>
 
-        </div>
+<div id="recipeCountdown">
 
-    </section>
+5초 후 주문서가 사라집니다
 
-    <!-- 가마솥 -->
+</div>
 
-    <section class="cauldronSection">
+</section>
 
-        <h2>
-            🧪 가마솥
-        </h2>
+<!-- 진행 단계 -->
 
-        <div id="cauldron">
+<section class="phaseSection">
 
-            <p id="cauldronText">
-                재료를 넣어주세요
-            </p>
+<div id="phaseText">
 
-        </div>
+현재 단계 :
+재료 넣기
 
-    </section>
+</div>
 
-    <!-- 재료 창 -->
+</section>
 
-    <section>
+<!-- 가마솥 -->
 
-        <h2 class="sectionTitle">
-            🌿 재료
-        </h2>
+<section class="cauldronSection">
 
-        <div id="ingredients"
-             class="ingredientsGrid">
+<h2>🧪 가마솥</h2>
 
-        </div>
+<div id="cauldron">
 
-    </section>
+<p id="cauldronText">
 
-    <!-- 제작 버튼 -->
+재료를 넣어주세요
 
-    <button id="brewBtn">
+</p>
 
-        ✨ 물약 제조
+</div>
 
-    </button>
+</section>
 
-    <!-- 결과 -->
+<!-- 재료 -->
 
-    <div id="result"
-         class="resultBox">
+<section>
 
-    </div>
+<h2 class="sectionTitle">
+🌿 재료
+</h2>
 
-    <!-- 상점 -->
+<div id="ingredients"
+class="ingredientsGrid">
 
-    <section class="shop">
+</div>
 
-        <h2>
-            🏪 마법 상점
-        </h2>
+</section>
 
-        <div class="shopButtons">
+<!-- 젓기 단계 -->
 
-            <button id="buyMemory">
+<section id="stirSection"
+class="hidden">
 
-                📜 주문서 +2초
-                (100G)
+<h2>
+🪄 마법봉으로 저어주세요
+</h2>
 
-            </button>
+<p>
 
-            <button id="buyTime">
+현재 :
+<span id="stirCount">
+0
+</span>
+/3
 
-                ⏰ 시간 +10초
-                (150G)
+</p>
 
-            </button>
+<button id="stirBtn">
 
-            <button id="buyDouble">
+🪄 젓기
 
-                ✨ 점수 2배
-                (250G)
+</button>
 
-            </button>
+</section>
 
-        </div>
+<!-- 가열 단계 -->
 
-    </section>
+<section id="heatSection"
+class="hidden">
 
-    <!-- 업적 -->
+<h2>
+🔥 가열하기
+</h2>
 
-    <section class="achievementSection">
+<div class="heatBar">
 
-        <h2>
-            🏅 업적
-        </h2>
+<div id="heatPointer">
 
-        <ul id="achievementList">
+</div>
 
-            <li>
-                아직 업적 없음
-            </li>
+</div>
 
-        </ul>
+<p>
 
-    </section>
+목표 온도 :
+<span id="targetHeat">
+70
+</span>
+
+%
+
+</p>
+
+<button id="heatBtn">
+
+🔥 멈추기
+
+</button>
+
+</section>
+
+<!-- 완성 -->
+
+<section id="finishSection"
+class="hidden">
+
+<button id="finishBtn">
+
+✨ 물약 완성하기
+
+</button>
+
+</section>
+
+<!-- 결과 -->
+
+<div id="result"
+class="resultBox">
+
+</div>
+
+<!-- 상점 -->
+
+<section class="shop">
+
+<h2>
+🏪 마법 상점
+</h2>
+
+<div class="shopButtons">
+
+<button id="buyMemory">
+
+📜 주문서 +2초
+(100G)
+
+</button>
+
+<button id="buyTime">
+
+⏰ 시간 +10초
+(150G)
+
+</button>
+
+<button id="buySatisfaction">
+
+😊 만족도 +20
+(120G)
+
+</button>
+
+</div>
+
+</section>
+
+<!-- 업적 -->
+
+<section class="achievementSection">
+
+<h2>
+🏅 업적
+</h2>
+
+<ul id="achievementList">
+
+<li>
+아직 업적 없음
+</li>
+
+</ul>
+
+</section>
 
 </div>
 
 <!-- 게임 오버 -->
 
 <div id="gameOverScreen"
-     class="screen hidden">
+class="screen hidden">
 
-    <h1>
-        ⏰ 게임 종료
-    </h1>
+<h1>
+🎮 게임 종료
+</h1>
 
-    <p>
+<p>
 
-        최종 점수 :
-        <span id="finalScore">
-            0
-        </span>
+최종 점수 :
+<span id="finalScore">
+0
+</span>
 
-    </p>
+</p>
 
-    <p>
+<p>
 
-        최고 점수 :
-        <span id="bestScore">
-            0
-        </span>
+최고 점수 :
+<span id="bestScore">
+0
+</span>
 
-    </p>
+</p>
 
-    <button id="restartBtn">
+<button id="restartBtn">
 
-        다시하기
+다시하기
 
-    </button>
+</button>
 
 </div>
 

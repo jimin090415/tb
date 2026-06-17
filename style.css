@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'맑은 고딕',sans-serif;
+    background:linear-gradient(135deg,#2b1055,#7597de);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* 시작화면 & 게임오버 */
+
+.screen{
+    width:800px;
+    max-width:100%;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+.screen h1{
+    color:#5a189a;
+    margin-bottom:20px;
+    font-size:42px;
+}
+
+.guide{
+    margin:25px 0;
+    line-height:2;
+    font-size:18px;
+}
+
+.screen button{
+    background:#7b2cbf;
+    color:white;
+    border:none;
+    padding:15px 40px;
+    border-radius:15px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.screen button:hover{
+    transform:scale(1.05);
+}
+
+/* 게임 */
+
+#gameScreen{
+    width:1000px;
+    max-width:100%;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+/* 상단 정보 */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.stat{
+    flex:1;
+    background:#f3e8ff;
+    text-align:center;
+    padding:15px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.stat span{
+    display:block;
+    margin-top:5px;
+    color:#7b2cbf;
+}
+
+/* 손님 */
+
+.customerBox{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.customer{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#f3e8ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    animation:bounce 2s infinite;
+}
+
+/* 말풍선 */
+
+.speech{
+    flex:1;
+    background:#fff7ed;
+    border:3px solid #ffd6a5;
+    border-radius:20px;
+    padding:20px;
+    position:relative;
+}
+
+.speech::before{
+    content:"";
+    position:absolute;
+    left:-18px;
+    top:40px;
+    width:0;
+    height:0;
+    border-top:15px solid transparent;
+    border-bottom:15px solid transparent;
+    border-right:20px solid #ffd6a5;
+}
+
+.speech h2{
+    color:#5a189a;
+    margin-bottom:10px;
+}
+
+.speech p{
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* 별점 */
+
+.stars{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+/* 재료 */
+
+.ingredients{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.ingredient{
+    background:#e0aaff;
+    border:none;
+    padding:15px;
+    border-radius:15px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.2s;
+    min-height:70px;
+}
+
+.ingredient:hover{
+    transform:translateY(-3px);
+}
+
+.ingredient.selected{
+    background:#7b2cbf;
+    color:white;
+}
+
+/* 선택창 */
+
+.selectedBox{
+    margin-top:25px;
+    background:#f8f0ff;
+    padding:15px;
+    border-radius:15px;
+    font-size:18px;
+}
+
+/* 제조 버튼 */
+
+#brewBtn{
+    width:100%;
+    margin-top:20px;
+    padding:18px;
+    border:none;
+    background:#5a189a;
+    color:white;
+    border-radius:15px;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#brewBtn:hover{
+    background:#7b2cbf;
+    transform:scale(1.02);
+}
+
+/* 결과 */
+
+.result{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:20px;
+    min-height:40px;
+}
+
+/* 성공 */
+
+.success{
+    color:#16a34a;
+}
+
+/* 실패 */
+
+.fail{
+    color:#dc2626;
+}
+
+/* 애니메이션 */
+
+@keyframes bounce{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* 모바일 */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+    }
+
+    .customerBox{
+        flex-direction:column;
+    }
+
+    .ingredients{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}

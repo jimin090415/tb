@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마법약 상점</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 시작 화면 -->
+    <div id="startScreen" class="screen">
+        <h1>🧪 마법약 상점</h1>
+        <p>손님이 원하는 마법약을 만들어 주세요!</p>
+
+        <div class="guide">
+            <p>✨ 성공 : +10점, +2초</p>
+            <p>💥 실패 : -5점, -3초</p>
+            <p>⏰ 제한 시간 : 60초</p>
+        </div>
+
+        <button id="startBtn">게임 시작</button>
+    </div>
+
+    <!-- 게임 화면 -->
+    <div id="gameScreen" class="hidden">
+
+        <header>
+
+            <div class="stat">
+                💰 점수
+                <span id="score">0</span>
+            </div>
+
+            <div class="stat">
+                ⏰ 시간
+                <span id="timer">60</span>
+            </div>
+
+            <div class="stat">
+                🏆 최고점수
+                <span id="highScore">0</span>
+            </div>
+
+        </header>
+
+        <!-- 손님 -->
+        <div class="customerBox">
+
+            <div class="customer">
+                🧙‍♀️
+            </div>
+
+            <div class="speech">
+
+                <h2>주문</h2>
+
+                <p id="orderText">
+                    물약을 만들어 주세요!
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- 별점 -->
+        <div class="stars" id="stars">
+            ⭐⭐⭐
+        </div>
+
+        <!-- 재료 -->
+        <div id="ingredients" class="ingredients">
+        </div>
+
+        <!-- 선택 재료 -->
+        <div class="selectedBox">
+            선택한 재료 :
+            <span id="selectedText">
+                없음
+            </span>
+        </div>
+
+        <button id="brewBtn">
+            🧪 물약 제조
+        </button>
+
+        <div id="result" class="result"></div>
+
+    </div>
+
+    <!-- 게임 오버 -->
+    <div id="gameOverScreen" class="screen hidden">
+
+        <h1>⏰ 게임 종료!</h1>
+
+        <p>
+            최종 점수 :
+            <span id="finalScore"></span>
+        </p>
+
+        <p>
+            최고 점수 :
+            <span id="bestScore"></span>
+        </p>
+
+        <button id="restartBtn">
+            다시하기
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

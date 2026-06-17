@@ -9,9 +9,6 @@ body{
     background:linear-gradient(135deg,#2b1055,#7597de);
     min-height:100vh;
     padding:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
 .hidden{
@@ -21,39 +18,42 @@ body{
 /* 시작화면 & 게임오버 */
 
 .screen{
-    width:850px;
-    max-width:100%;
+    max-width:900px;
+    margin:50px auto;
     background:white;
     padding:40px;
     border-radius:25px;
     text-align:center;
-    box-shadow:0 0 30px rgba(0,0,0,0.3);
+    box-shadow:0 0 25px rgba(0,0,0,0.25);
 }
 
 .screen h1{
-    font-size:48px;
     color:#5a189a;
+    font-size:48px;
     margin-bottom:20px;
 }
 
-.screen p{
+.intro{
     font-size:20px;
-    margin-bottom:10px;
+    margin-bottom:20px;
 }
 
 .guide{
-    margin:30px 0;
+    background:#f8f0ff;
+    border-radius:15px;
+    padding:20px;
+    margin:25px 0;
     line-height:2;
 }
 
 .screen button{
+    border:none;
     background:#7b2cbf;
     color:white;
-    border:none;
     padding:15px 40px;
+    font-size:22px;
     border-radius:15px;
     cursor:pointer;
-    font-size:22px;
     transition:.3s;
 }
 
@@ -61,15 +61,15 @@ body{
     transform:scale(1.05);
 }
 
-/* 게임 */
+/* 게임화면 */
 
 #gameScreen{
-    width:1200px;
-    max-width:100%;
+    max-width:1200px;
+    margin:auto;
     background:white;
     border-radius:25px;
     padding:25px;
-    box-shadow:0 0 30px rgba(0,0,0,0.3);
+    box-shadow:0 0 25px rgba(0,0,0,0.25);
 }
 
 /* 상단 정보 */
@@ -87,39 +87,38 @@ header{
     padding:15px;
     text-align:center;
     font-weight:bold;
-    font-size:18px;
 }
 
 .stat span{
     display:block;
-    margin-top:6px;
+    margin-top:8px;
     color:#7b2cbf;
     font-size:24px;
 }
 
 /* 손님 */
 
-.customerBox{
+.customerSection{
     display:flex;
-    gap:25px;
     align-items:center;
+    gap:25px;
     margin-bottom:25px;
 }
 
-.customer{
-    width:130px;
-    height:130px;
-    background:#f3e8ff;
+.customerAvatar{
+    width:120px;
+    height:120px;
     border-radius:50%;
+    background:#f3e8ff;
     display:flex;
     justify-content:center;
     align-items:center;
     font-size:70px;
-    animation:bounce 2s infinite;
     flex-shrink:0;
+    animation:bounce 2s infinite;
 }
 
-.speech{
+.speechBubble{
     flex:1;
     background:#fff7ed;
     border:4px solid #ffd6a5;
@@ -128,38 +127,101 @@ header{
     position:relative;
 }
 
-.speech::before{
+.speechBubble::before{
     content:"";
     position:absolute;
-    left:-22px;
-    top:45px;
+    left:-20px;
+    top:40px;
 
-    border-top:18px solid transparent;
-    border-bottom:18px solid transparent;
-    border-right:22px solid #ffd6a5;
+    border-top:15px solid transparent;
+    border-bottom:15px solid transparent;
+    border-right:20px solid #ffd6a5;
 }
 
-.speech h2{
+.speechBubble h2{
     color:#5a189a;
     margin-bottom:10px;
 }
 
-.speech p{
-    font-size:22px;
+.speechBubble p{
+    font-size:20px;
     font-weight:bold;
 }
 
-/* 별점 */
+/* 주문서 */
 
-.stars{
+#recipeCard{
+    background:#fff7ed;
+    border:3px solid #ffd6a5;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:25px;
+}
+
+#recipeCard h2{
+    margin-bottom:10px;
+}
+
+#potionName{
+    color:#5a189a;
+    margin-bottom:10px;
+}
+
+#recipeList{
+    padding-left:25px;
+    line-height:1.8;
+}
+
+#recipeCountdown{
+    margin-top:15px;
+    color:#dc2626;
+    font-weight:bold;
+}
+
+/* 가마솥 */
+
+.cauldronSection{
     text-align:center;
-    font-size:38px;
-    margin-bottom:20px;
+    margin-bottom:25px;
+}
+
+#cauldron{
+    width:250px;
+    height:250px;
+    margin:auto;
+    background:radial-gradient(
+        circle,
+        #7b2cbf,
+        #2b1055
+    );
+
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-weight:bold;
+
+    box-shadow:
+    0 0 25px rgba(123,44,191,.6);
+
+    animation:bubble 3s infinite;
+}
+
+#cauldronText{
+    width:80%;
+    text-align:center;
+    line-height:1.6;
 }
 
 /* 재료 */
 
-.ingredients{
+.sectionTitle{
+    margin-bottom:15px;
+}
+
+.ingredientsGrid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
@@ -168,12 +230,11 @@ header{
 .ingredient{
     border:none;
     background:#e0aaff;
-    padding:16px;
     border-radius:15px;
+    padding:15px;
     cursor:pointer;
     font-size:16px;
     transition:.2s;
-    min-height:75px;
 }
 
 .ingredient:hover{
@@ -186,54 +247,33 @@ header{
     transform:scale(1.05);
 }
 
-/* 선택 재료 */
-
-.selectedBox{
-    margin-top:20px;
-    background:#f8f0ff;
-    padding:15px;
-    border-radius:15px;
-    font-size:18px;
-}
-
 /* 제조 버튼 */
 
 #brewBtn{
     width:100%;
-    margin-top:20px;
+    margin-top:25px;
     border:none;
     background:#5a189a;
     color:white;
     padding:18px;
     border-radius:15px;
-    cursor:pointer;
     font-size:24px;
+    cursor:pointer;
     transition:.3s;
 }
 
 #brewBtn:hover{
     background:#7b2cbf;
-    transform:scale(1.02);
 }
 
 /* 결과 */
 
-.result{
+.resultBox{
+    min-height:50px;
     text-align:center;
     font-size:24px;
     font-weight:bold;
-    min-height:40px;
     margin-top:20px;
-}
-
-.success{
-    color:#16a34a;
-    animation:pop .4s;
-}
-
-.fail{
-    color:#dc2626;
-    animation:shake .4s;
 }
 
 /* 상점 */
@@ -241,13 +281,12 @@ header{
 .shop{
     margin-top:30px;
     background:#f8f0ff;
-    border-radius:20px;
     padding:20px;
+    border-radius:20px;
 }
 
 .shop h2{
     margin-bottom:15px;
-    color:#5a189a;
 }
 
 .shopButtons{
@@ -260,10 +299,9 @@ header{
     border:none;
     background:#7b2cbf;
     color:white;
-    padding:15px;
     border-radius:15px;
+    padding:15px;
     cursor:pointer;
-    transition:.3s;
 }
 
 .shopButtons button:hover{
@@ -272,24 +310,23 @@ header{
 
 /* 업적 */
 
-.achievementBox{
+.achievementSection{
     margin-top:25px;
     background:#fff7ed;
-    border-radius:20px;
     padding:20px;
+    border-radius:20px;
 }
 
-.achievementBox h2{
-    color:#5a189a;
+.achievementSection h2{
     margin-bottom:10px;
 }
 
-.achievementBox ul{
+.achievementSection ul{
     padding-left:20px;
 }
 
-.achievementBox li{
-    margin-bottom:8px;
+.achievementSection li{
+    margin-bottom:6px;
 }
 
 /* 애니메이션 */
@@ -301,7 +338,7 @@ header{
     }
 
     50%{
-        transform:translateY(-10px);
+        transform:translateY(-8px);
     }
 
     100%{
@@ -310,10 +347,14 @@ header{
 
 }
 
-@keyframes pop{
+@keyframes bubble{
 
     0%{
-        transform:scale(.7);
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
     }
 
     100%{
@@ -322,28 +363,14 @@ header{
 
 }
 
-@keyframes shake{
+/* 성공/실패 */
 
-    0%{
-        transform:translateX(0);
-    }
+.success{
+    color:#16a34a;
+}
 
-    25%{
-        transform:translateX(-6px);
-    }
-
-    50%{
-        transform:translateX(6px);
-    }
-
-    75%{
-        transform:translateX(-6px);
-    }
-
-    100%{
-        transform:translateX(0);
-    }
-
+.fail{
+    color:#dc2626;
 }
 
 /* 모바일 */
@@ -354,16 +381,21 @@ header{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .customerBox{
+    .customerSection{
         flex-direction:column;
     }
 
-    .ingredients{
+    .ingredientsGrid{
         grid-template-columns:repeat(2,1fr);
     }
 
     .shopButtons{
         flex-direction:column;
+    }
+
+    #cauldron{
+        width:200px;
+        height:200px;
     }
 
 }

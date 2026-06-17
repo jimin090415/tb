@@ -16,17 +16,19 @@
 
     <h1>🧪 마법약 상점 DX</h1>
 
-    <p>
-        손님이 원하는 마법약을 만들어
-        최고의 마법사가 되어보세요!
+    <p class="intro">
+        손님이 원하는 물약을 기억하고
+        정확하게 만들어 주세요!
     </p>
 
     <div class="guide">
 
-        <p>✨ 성공 : +10점 +20골드 +2초</p>
-        <p>💥 실패 : -5점 -10골드 -3초</p>
-        <p>🔥 콤보로 추가 점수 획득</p>
-        <p>📈 점수에 따라 레벨업</p>
+        <h3>게임 방법</h3>
+
+        <p>① 손님의 주문서를 확인한다.</p>
+        <p>② 필요한 재료를 기억한다.</p>
+        <p>③ 가마솥에 재료를 넣는다.</p>
+        <p>④ 물약을 제조한다.</p>
 
     </div>
 
@@ -40,165 +42,223 @@
 
 <div id="gameScreen" class="hidden">
 
-<header>
+    <!-- 상단 정보 -->
 
-<div class="stat">
-💰 골드
-<span id="gold">0</span>
-</div>
+    <header>
 
-<div class="stat">
-🏆 점수
-<span id="score">0</span>
-</div>
+        <div class="stat">
+            🏆 점수
+            <span id="score">0</span>
+        </div>
 
-<div class="stat">
-📈 레벨
-<span id="level">1</span>
-</div>
+        <div class="stat">
+            💰 골드
+            <span id="gold">0</span>
+        </div>
 
-<div class="stat">
-🔥 콤보
-<span id="combo">0</span>
-</div>
+        <div class="stat">
+            📈 레벨
+            <span id="level">1</span>
+        </div>
 
-<div class="stat">
-⏰ 시간
-<span id="timer">60</span>
-</div>
+        <div class="stat">
+            🔥 콤보
+            <span id="combo">0</span>
+        </div>
 
-</header>
+        <div class="stat">
+            ⏰ 시간
+            <span id="timer">60</span>
+        </div>
 
-<!-- 손님 -->
+    </header>
 
-<div class="customerBox">
+    <!-- 손님 -->
 
-<div id="customerEmoji" class="customer">
-🧙‍♀️
-</div>
+    <section class="customerSection">
 
-<div class="speech">
+        <div id="customerEmoji"
+             class="customerAvatar">
+            🧙‍♀️
+        </div>
 
-<h2 id="customerName">
-마녀
-</h2>
+        <div class="speechBubble">
 
-<p id="orderText">
-물약을 만들어 주세요!
-</p>
+            <h2 id="customerName">
+                마녀
+            </h2>
 
-</div>
+            <p id="customerSpeech">
+                물약 하나 부탁해요!
+            </p>
 
-</div>
+        </div>
 
-<!-- 별점 -->
+    </section>
 
-<div id="stars" class="stars">
-⭐⭐⭐
-</div>
+    <!-- 주문서 -->
 
-<!-- 재료 -->
+    <section id="recipeCard">
 
-<div id="ingredients"
-class="ingredients">
-</div>
+        <h2>
+            📜 주문서
+        </h2>
 
-<!-- 선택한 재료 -->
+        <h3 id="potionName">
+            투명화 물약
+        </h3>
 
-<div class="selectedBox">
+        <ul id="recipeList">
 
-선택한 재료 :
+            <li>유니콘 털</li>
+            <li>달빛 가루</li>
+            <li>안개 버섯</li>
 
-<span id="selectedText">
-없음
-</span>
+        </ul>
 
-</div>
+        <div id="recipeCountdown">
 
-<button id="brewBtn">
+            레시피가 곧 사라집니다...
 
-🧪 물약 제조
+        </div>
 
-</button>
+    </section>
 
-<div id="result"
-class="result">
-</div>
+    <!-- 가마솥 -->
 
-<!-- 상점 -->
+    <section class="cauldronSection">
 
-<div class="shop">
+        <h2>
+            🧪 가마솥
+        </h2>
 
-<h2>
-🏪 마법 상점
-</h2>
+        <div id="cauldron">
 
-<div class="shopButtons">
+            <p id="cauldronText">
+                재료를 넣어주세요
+            </p>
 
-<button id="buyTime">
+        </div>
 
-⏰ 시간 +10초
-(100G)
+    </section>
 
-</button>
+    <!-- 재료 창 -->
 
-<button id="buyDouble">
+    <section>
 
-✨ 점수 2배
-(200G)
+        <h2 class="sectionTitle">
+            🌿 재료
+        </h2>
 
-</button>
+        <div id="ingredients"
+             class="ingredientsGrid">
 
-</div>
+        </div>
 
-</div>
+    </section>
 
-<!-- 업적 -->
+    <!-- 제작 버튼 -->
 
-<div class="achievementBox">
+    <button id="brewBtn">
 
-<h2>
-🏅 업적
-</h2>
+        ✨ 물약 제조
 
-<ul id="achievementList">
+    </button>
 
-<li>
-아직 업적 없음
-</li>
+    <!-- 결과 -->
 
-</ul>
+    <div id="result"
+         class="resultBox">
 
-</div>
+    </div>
+
+    <!-- 상점 -->
+
+    <section class="shop">
+
+        <h2>
+            🏪 마법 상점
+        </h2>
+
+        <div class="shopButtons">
+
+            <button id="buyMemory">
+
+                📜 주문서 +2초
+                (100G)
+
+            </button>
+
+            <button id="buyTime">
+
+                ⏰ 시간 +10초
+                (150G)
+
+            </button>
+
+            <button id="buyDouble">
+
+                ✨ 점수 2배
+                (250G)
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- 업적 -->
+
+    <section class="achievementSection">
+
+        <h2>
+            🏅 업적
+        </h2>
+
+        <ul id="achievementList">
+
+            <li>
+                아직 업적 없음
+            </li>
+
+        </ul>
+
+    </section>
 
 </div>
 
 <!-- 게임 오버 -->
 
 <div id="gameOverScreen"
-class="screen hidden">
+     class="screen hidden">
 
-<h1>
-⏰ 게임 종료
-</h1>
+    <h1>
+        ⏰ 게임 종료
+    </h1>
 
-<p>
-최종 점수 :
-<span id="finalScore">
-0
-</span>
-</p>
+    <p>
 
-<p>
-최고 점수 :
-<span id="bestScore">
-0
-</span>
-</p>
+        최종 점수 :
+        <span id="finalScore">
+            0
+        </span>
 
-<button id="restartBtn">
-다시하기
-</button>
+    </p>
+
+    <p>
+
+        최고 점수 :
+        <span id="bestScore">
+            0
+        </span>
+
+    </p>
+
+    <button id="restartBtn">
+
+        다시하기
+
+    </button>
 
 </div>
 

@@ -6,7 +6,12 @@
 
 body{
     font-family:"맑은 고딕",sans-serif;
-    background:linear-gradient(135deg,#2b1055,#7597de);
+    background:
+    linear-gradient(
+        135deg,
+        #2b1055,
+        #7597de
+    );
     min-height:100vh;
     padding:20px;
 }
@@ -15,318 +20,577 @@ body{
     display:none !important;
 }
 
-/* 시작화면 & 게임오버 */
+/* 시작화면 */
 
 .screen{
+
     max-width:900px;
-    margin:50px auto;
+    margin:40px auto;
+
     background:white;
-    padding:40px;
+
     border-radius:25px;
+
+    padding:40px;
+
     text-align:center;
-    box-shadow:0 0 25px rgba(0,0,0,0.25);
+
+    box-shadow:
+    0 0 25px rgba(0,0,0,.25);
 }
 
 .screen h1{
+
     color:#5a189a;
-    font-size:48px;
+
     margin-bottom:20px;
 }
 
 .intro{
+
     font-size:20px;
+
     margin-bottom:20px;
 }
 
 .guide{
+
     background:#f8f0ff;
-    border-radius:15px;
+
+    border-radius:20px;
+
     padding:20px;
-    margin:25px 0;
+
     line-height:2;
+
+    margin:25px 0;
 }
 
 .screen button{
+
     border:none;
+
     background:#7b2cbf;
+
     color:white;
+
     padding:15px 40px;
-    font-size:22px;
+
     border-radius:15px;
+
+    font-size:22px;
+
     cursor:pointer;
-    transition:.3s;
 }
 
-.screen button:hover{
-    transform:scale(1.05);
-}
-
-/* 게임화면 */
+/* 게임 화면 */
 
 #gameScreen{
-    max-width:1200px;
+
+    max-width:1250px;
+
     margin:auto;
+
     background:white;
+
     border-radius:25px;
+
     padding:25px;
-    box-shadow:0 0 25px rgba(0,0,0,0.25);
+
+    box-shadow:
+    0 0 25px rgba(0,0,0,.25);
 }
 
 /* 상단 정보 */
 
 header{
+
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+    repeat(5,1fr);
+
     gap:12px;
+
     margin-bottom:25px;
 }
 
 .stat{
+
     background:#f3e8ff;
+
     border-radius:15px;
+
     padding:15px;
+
     text-align:center;
+
     font-weight:bold;
 }
 
 .stat span{
+
     display:block;
+
     margin-top:8px;
-    color:#7b2cbf;
+
     font-size:24px;
+
+    color:#7b2cbf;
 }
 
 /* 손님 */
 
 .customerSection{
+
     display:flex;
-    align-items:center;
+
     gap:25px;
+
+    align-items:center;
+
     margin-bottom:25px;
 }
 
 .customerAvatar{
+
     width:120px;
+
     height:120px;
+
     border-radius:50%;
+
     background:#f3e8ff;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     font-size:70px;
-    flex-shrink:0;
+
     animation:bounce 2s infinite;
 }
 
 .speechBubble{
+
     flex:1;
+
     background:#fff7ed;
+
     border:4px solid #ffd6a5;
+
     border-radius:20px;
+
     padding:20px;
+
     position:relative;
 }
 
 .speechBubble::before{
+
     content:"";
+
     position:absolute;
+
     left:-20px;
+
     top:40px;
 
     border-top:15px solid transparent;
+
     border-bottom:15px solid transparent;
+
     border-right:20px solid #ffd6a5;
 }
 
 .speechBubble h2{
-    color:#5a189a;
-    margin-bottom:10px;
-}
 
-.speechBubble p{
-    font-size:20px;
-    font-weight:bold;
+    color:#5a189a;
+
+    margin-bottom:10px;
 }
 
 /* 주문서 */
 
 #recipeCard{
+
     background:#fff7ed;
+
     border:3px solid #ffd6a5;
+
     border-radius:20px;
+
     padding:20px;
-    margin-bottom:25px;
+
+    margin-bottom:20px;
 }
 
 #recipeCard h2{
+
     margin-bottom:10px;
 }
 
 #potionName{
+
     color:#5a189a;
+
     margin-bottom:10px;
 }
 
 #recipeList{
+
     padding-left:25px;
+
     line-height:1.8;
 }
 
-#recipeCountdown{
+#extraRecipe{
+
     margin-top:15px;
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:10px;
+}
+
+#recipeCountdown{
+
+    margin-top:10px;
+
     color:#dc2626;
+
+    font-weight:bold;
+}
+
+/* 단계 */
+
+.phaseSection{
+
+    margin-bottom:20px;
+}
+
+#phaseText{
+
+    background:#5a189a;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-size:20px;
+
     font-weight:bold;
 }
 
 /* 가마솥 */
 
 .cauldronSection{
+
     text-align:center;
+
     margin-bottom:25px;
 }
 
 #cauldron{
-    width:250px;
-    height:250px;
+
+    width:280px;
+
+    height:280px;
+
     margin:auto;
-    background:radial-gradient(
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    padding:20px;
+
+    background:
+    radial-gradient(
         circle,
         #7b2cbf,
         #2b1055
     );
 
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:white;
-    font-weight:bold;
-
     box-shadow:
-    0 0 25px rgba(123,44,191,.6);
+    0 0 30px rgba(
+        123,
+        44,
+        191,
+        .6
+    );
 
     animation:bubble 3s infinite;
 }
 
 #cauldronText{
-    width:80%;
-    text-align:center;
+
     line-height:1.6;
 }
 
 /* 재료 */
 
 .sectionTitle{
+
     margin-bottom:15px;
 }
 
 .ingredientsGrid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:15px;
 }
 
 .ingredient{
+
     border:none;
+
     background:#e0aaff;
-    border-radius:15px;
+
     padding:15px;
+
+    border-radius:15px;
+
     cursor:pointer;
+
     font-size:16px;
+
     transition:.2s;
 }
 
 .ingredient:hover{
-    transform:translateY(-4px);
+
+    transform:
+    translateY(-4px);
 }
 
 .ingredient.selected{
+
     background:#7b2cbf;
+
     color:white;
+
     transform:scale(1.05);
 }
 
-/* 제조 버튼 */
+/* 젓기 */
 
-#brewBtn{
-    width:100%;
+#stirSection{
+
+    text-align:center;
+
     margin-top:25px;
-    border:none;
-    background:#5a189a;
-    color:white;
-    padding:18px;
-    border-radius:15px;
-    font-size:24px;
-    cursor:pointer;
-    transition:.3s;
 }
 
-#brewBtn:hover{
+#stirBtn{
+
+    margin-top:15px;
+
+    border:none;
+
     background:#7b2cbf;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+/* 가열 */
+
+#heatSection{
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.heatBar{
+
+    width:500px;
+
+    max-width:100%;
+
+    height:35px;
+
+    background:#ddd;
+
+    margin:20px auto;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+#heatPointer{
+
+    width:25px;
+
+    height:35px;
+
+    background:#ff6b00;
+
+    position:absolute;
+
+    left:0;
+}
+
+#heatBtn{
+
+    border:none;
+
+    background:#dc2626;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+}
+
+/* 완성 */
+
+#finishSection{
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+#finishBtn{
+
+    border:none;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:18px 40px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:22px;
 }
 
 /* 결과 */
 
 .resultBox{
+
     min-height:50px;
+
     text-align:center;
+
     font-size:24px;
+
     font-weight:bold;
+
     margin-top:20px;
+}
+
+.success{
+
+    color:#16a34a;
+}
+
+.fail{
+
+    color:#dc2626;
 }
 
 /* 상점 */
 
 .shop{
+
     margin-top:30px;
+
     background:#f8f0ff;
-    padding:20px;
+
     border-radius:20px;
+
+    padding:20px;
 }
 
 .shop h2{
+
     margin-bottom:15px;
 }
 
 .shopButtons{
+
     display:flex;
+
     gap:15px;
 }
 
 .shopButtons button{
-    flex:1;
-    border:none;
-    background:#7b2cbf;
-    color:white;
-    border-radius:15px;
-    padding:15px;
-    cursor:pointer;
-}
 
-.shopButtons button:hover{
-    transform:scale(1.03);
+    flex:1;
+
+    border:none;
+
+    background:#7b2cbf;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    cursor:pointer;
 }
 
 /* 업적 */
 
 .achievementSection{
-    margin-top:25px;
-    background:#fff7ed;
-    padding:20px;
-    border-radius:20px;
-}
 
-.achievementSection h2{
-    margin-bottom:10px;
+    margin-top:25px;
+
+    background:#fff7ed;
+
+    border-radius:20px;
+
+    padding:20px;
 }
 
 .achievementSection ul{
+
     padding-left:20px;
 }
 
 .achievementSection li{
-    margin-bottom:6px;
+
+    margin-bottom:8px;
 }
 
 /* 애니메이션 */
@@ -344,7 +608,6 @@ header{
     100%{
         transform:translateY(0);
     }
-
 }
 
 @keyframes bubble{
@@ -360,17 +623,6 @@ header{
     100%{
         transform:scale(1);
     }
-
-}
-
-/* 성공/실패 */
-
-.success{
-    color:#16a34a;
-}
-
-.fail{
-    color:#dc2626;
 }
 
 /* 모바일 */
@@ -378,24 +630,31 @@ header{
 @media(max-width:900px){
 
     header{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .customerSection{
+
         flex-direction:column;
     }
 
     .ingredientsGrid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .shopButtons{
+
         flex-direction:column;
     }
 
     #cauldron{
-        width:200px;
-        height:200px;
+
+        width:220px;
+        height:220px;
     }
 
 }
